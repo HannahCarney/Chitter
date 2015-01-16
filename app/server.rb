@@ -68,7 +68,12 @@ class Chitter < Sinatra::Base
       flash[:errors] = ["Sorry, wrong username or password"]
       erb :signin
    end
+  end
 
+  get '/sessions/logout' do
+    session[:user_id] = nil
+    flash[:notice] = "You are now logged out"
+    redirect to('/')
   end
 
   not_found do
