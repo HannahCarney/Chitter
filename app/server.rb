@@ -64,6 +64,9 @@ class Chitter < Sinatra::Base
      session[:user_id] = @user.id
      flash[:notice] = "Welcome back, #{@user.username}"
      redirect ('/')
+    else 
+      flash[:errors] = ["Sorry, wrong username or password"]
+      erb :signin
    end
 
   end

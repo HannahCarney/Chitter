@@ -6,15 +6,17 @@ class User
   include DataMapper::Resource
   
   property :id,     Serial 
-  property :username,  String
+  property :username,  String, :unique => true
   property :email,    String
   property :password_digest, Text
 
 
   attr_reader :password
+ 
   
   validates_uniqueness_of :email
   validates_uniqueness_of :username
+ 
 
     def password=(password)
       @password = password
