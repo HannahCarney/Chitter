@@ -19,7 +19,19 @@ body {
 	font-family:  Helvetica Neue;
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #D2691E;
+  overflow: hidden;
+}
 
+li {
+	float: left;
+	color: black;
+	 font:25px/1  Helvetica Neue;
+}
 
 a {
 	text-decoration: none;
