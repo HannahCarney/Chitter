@@ -6,7 +6,6 @@
   <meta charseet="utf-5">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
   <header>
     <h1><%= title %></h1>
     <nav>
@@ -14,8 +13,17 @@
         <li><a href='/' title="Home">Home</a></li>
         <li><a href='/about' title="About">About</a></li>
         <li><a href='/contact' title="Contact">Contact</a></li>
-       </ul>
-    </header>
+      </ul>
+  </header>
+  <body>
+ <% if flash[:errors] && !flash[:errors].empty? %>
+   <div id="errors">
+      <% flash[:errors].each do |error| %>
+        <%= error %>
+    </div>
+      <% end %>
+    </ul>
+  <% end %>
   <% if flash[:notice] %>
     <div id="notice">
       <%= flash[:notice] %>

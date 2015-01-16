@@ -46,6 +46,9 @@ class Chitter < Sinatra::Base
       session[:user_id] = @user.id
       flash[:notice] = "Welcome to Chitter, #{@user.username}"
       redirect ('/')
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      erb :signup
     end
   end
 
@@ -56,8 +59,12 @@ class Chitter < Sinatra::Base
 
   post '/sessions' do
     username, password = params[:username], params[:password]
-    user = User.authenticate(username, password)
-    session[:user_id] = user.id 
+    @user = User.authenticate(username, password)
+    if @user
+     session[:user_id] = @user.id
+     flash[:notice] = "Welcome back, #{@user.username}"
+     redirect ('/')
+   end
 
   end
 
