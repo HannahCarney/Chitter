@@ -71,9 +71,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/sessions/logout' do
-    session[:user_id] = nil
-    flash[:notice] = "You are now logged out"
-    redirect to('/')
+    if session[:user_id]
+      session[:user_id] = nil
+      flash[:notice] = "You are now logged out"
+      redirect to('/')
+    else 
+      flash[:notice] = "You are not logged in"
+      redirect to ('/')
+    end
   end
 
   not_found do
