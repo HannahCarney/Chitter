@@ -1,4 +1,7 @@
 require 'spec_helper'
+require_relative 'helpers/session_helpers'
+
+include SessionHelpers
 
 feature "In order to use chitter as a maker I want to sign up to the service" do
   
@@ -6,7 +9,7 @@ feature "In order to use chitter as a maker I want to sign up to the service" do
     visit '/'
     expect(page).to have_content("Welcome to Chitter")
     expect{ sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content("Welcome, alice@example.com")
+    expect(page).to have_content("Welcome, alice")
     expect(User.first.email).to eq("alice@example.com")
   end
 
