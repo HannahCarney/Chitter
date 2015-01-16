@@ -5,14 +5,20 @@ include SessionHelpers
 
 feature "In order to use chitter as a maker I want to sign up to the service" do
   
-  scenario "when being a new user visiting the site" do
+  scenario "being able to sign up" do
     visit '/'
     expect(page).to have_content("Welcome to Chitter")
     expect{ sign_up }.to change(User, :count).by(1)
-    expect(page).to have_content("Welcome, alice")
+    expect(page).to have_content("You are now logged in as alice")
     expect(User.first.email).to eq("alice@example.com")
   end
+end
 
+feature "In order to use chitter as a maker I want to log in" do
+
+  scenario "being able to sign in" do
+
+  end
   # scenario "with a password that doesn't match" do
 
   # end

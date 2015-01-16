@@ -22,6 +22,14 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  get '/about' do
+    erb :about
+  end
+
+  get '/contact' do
+    erb :contact
+  end
+
   get '/users/new' do
     @user = User.new
     erb :signup
@@ -34,8 +42,7 @@ class Chitter < Sinatra::Base
     if @user.save
       session[:user_id] = @user.id
       redirect ('/')
-
-  end
+    end
   end
 
   not_found do

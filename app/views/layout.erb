@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <header>
-      <title>Chitter</title>
-
+<% title="Chitter" %>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+  <header>
+    <h1><%= title %></h1>
+    <nav>
+      <ul>
+        <li><a href='/' title="Home">Home</a></li>
+        <li><a href='/about' title="About">About</a></li>
+        <li><a href='/contact' title="Contact">Contact</a></li>
+       </ul>
     </header>
+    <section>
+    <p>A new social netoworking site!</p>
+    </section>
   <% if current_user %>
-    Welcome, <%= current_user.username %>
+    You are now logged in as <%= current_user.username %>
     <% end %>
   <%= yield %>
 
