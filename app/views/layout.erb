@@ -2,16 +2,13 @@
 <% title="Chitter" %>
 <html lang="en">
 <head>
-  <title><%= title %></title>
-  <meta charseet="utf-8">
+  <title><%= @title || "Chitter" %></title>
+  <meta charseet="utf-5">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <header>
     <h1><%= title %></h1>
-    <section>
-      <p>A new social netoworking site!</p>
-    </section>
     <nav>
       <ul>
         <li><a href='/' title="Home">Home</a></li>
@@ -19,10 +16,11 @@
         <li><a href='/contact' title="Contact">Contact</a></li>
        </ul>
     </header>
-  <% if current_user %>
-    You are now logged in as <%= current_user.username %>
-    <% end %>
-  <%= yield %>
-
+  <% if flash[:notice] %>
+    <div id="notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+   <%= yield %>
 </body>
 </html>

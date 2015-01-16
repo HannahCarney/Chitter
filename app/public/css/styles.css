@@ -1,16 +1,53 @@
 h1 {
   color: #903;
-  font: 32px/1 Helvetica, Arial, sans-serif;
+  font: 32px/1  Helvetica Neue;
 }
 
 header h1 {
-	font-size: 40px;
-	line-height: 80px;
+	font-size: 48px;
+	line-height: 65px;
 	background: transparent url(/images/chitter.png) 0 0 no-repeat; 
 	background-size: 65px 65px;
-	padding-left: 84px;
+	padding-left: 80px;
 }
 
 p {
-	font: 13px/1.4 Helvetica, Arial, sans-serif;
+	font: 13px/1.4  Helvetica Neue;
+}
+
+body {
+	font-family:  Helvetica Neue;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #D2691E;
+  overflow: hidden;
+}
+
+li {
+	float: left;
+	color: black;
+	 font:25px/1  Helvetica Neue;
+}
+
+a {
+	text-decoration: none;
+	display: block;
+	padding: 8px;
+	&:hover {
+		background: darken(black, 20%);
+    }
+  }
+}
+
+nav {
+ <% include tabs %> (background: #D2691E, color: white);
+ font-weight: bold;
+}
+
+p {
+ font: 13px/1.4 Helvetica Neue;
 }

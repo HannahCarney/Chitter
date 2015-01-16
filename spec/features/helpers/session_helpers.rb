@@ -11,5 +11,12 @@ module SessionHelpers
       click_button "Sign up"
     end
 
-
+  def sign_in(username, password)
+      visit '/sessions/new'
+      expect(page.status_code).to eq(200)
+      fill_in 'username', :with => username
+      fill_in 'password', :with => password
+      click_button "Sign in"
   end
+
+end

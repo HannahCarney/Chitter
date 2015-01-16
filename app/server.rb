@@ -23,14 +23,17 @@ class Chitter < Sinatra::Base
   end
 
   get '/about' do
+    @title = "All About this Website"
     erb :about
   end
 
   get '/contact' do
+    @title = "Contact Chitter"
     erb :contact
   end
 
   get '/users/new' do
+    @title = "Create a New User"
     @user = User.new
     erb :signup
   end
@@ -41,8 +44,21 @@ class Chitter < Sinatra::Base
                      :password => params[:password])
     if @user.save
       session[:user_id] = @user.id
+      flash[:notice] = "Welcome to Chitter, #{@user.username}"
       redirect ('/')
     end
+  end
+
+  get '/sessions/new' do
+    @title = "Sign in"
+    erb :signin
+  end
+
+  post '/sessions' do
+    username, password = params[:username], params[:password]
+    user = User.authenticate(username, password)
+    session[:user_id] = user.id 
+
   end
 
   not_found do
