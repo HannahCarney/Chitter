@@ -2,6 +2,9 @@ require 'sinatra/base'
 require 'rack-flash'
 require 'pony'
 require 'data_mapper'
+require 'dm-core'
+require 'dm-migrations'
+
 
 require_relative 'helpers/currentuser'
 require_relative 'helpers/peeps'
@@ -93,17 +96,27 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/peep' do
+    @peeps = Peep.all
+    erb :peep
+  end
+
   post '/peep/new' do
-      find_peeps
-      @peep = Peep.new(:message => params[:message])
+      @peep = Peep.create(:message => params[:message])
     if @peep.message == ""
       flash[:notice] = "You didn't enter a peep"
       redirect ('/')
     else 
       flash[:notice] = "You posted a new peep"
-      erb :peep
+      @peep.save
+      redirect to("/peep")
     end
 
+  end
+
+  get '/peep/:id' do
+    @peep = find_peep
+    erb :show_peep
   end
 
 

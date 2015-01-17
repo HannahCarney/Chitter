@@ -1,7 +1,9 @@
+require './lib/peep'
+
 module PeepHelpers
  
   def find_peeps
-     Peep.all
+    @peeps = Peep.all
   end
 
   def find_peep

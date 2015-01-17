@@ -1,11 +1,14 @@
 <h1> Peep Page </h1>
-<%= @peep.message %>
+<div>
+	<% if @peeps.any? %>
+		   <% @peeps.each do |peep| %>
+		   <ul>
+			   <pre><li><%= peep.message %></li></pre>
+		   </ul>
+		   <% end %>
+	<% else %>
+		  <p> No peeps have been created yet </p>
+	<% end %>
+</div> 
 
-<h1>Post a new peep!</h1>
-<section id="new-peep">
-	 <form action="/peep/new" method="post">
-	 <label for "message"> Your message: <input name="message" type="text">
-	 <input type="submit" value="Submit">
- </form>
-</section>
 
