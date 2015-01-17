@@ -23,6 +23,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
+    @user = User.get(params[:user_id])
     @peeps = Peep.all
     erb :index
   end
@@ -82,7 +83,7 @@ class Chitter < Sinatra::Base
      redirect ('/')
     else 
       flash[:errors] = ["Sorry, wrong username or password"]
-      erb :signin
+      redirect ('/sessions/new')
    end
   end
 
