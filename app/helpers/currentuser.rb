@@ -37,10 +37,6 @@ module CurrentUser
     end
   end
 
-  def time_stamp(time)
-      time.strftime("%I:%M%p") 
-  end
-
 
 end
 
