@@ -108,7 +108,7 @@ class Chitter < Sinatra::Base
       @user = User.get(session[:user_id])
       @peep = Peep.new(:message => params[:message],
                        :username => @user.username,
-                       :peep_timestamp => Time.now)
+                       :peep_timestamp => time_stamp(Time.now))
     if @peep.message == ""
       flash[:notice] = "You didn't enter a peep"
       redirect ('/')

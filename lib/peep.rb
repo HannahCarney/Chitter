@@ -6,5 +6,6 @@ class Peep
   property :message, Text
   property :peep_timestamp, Time
   property :username, String
+ 
 
 end

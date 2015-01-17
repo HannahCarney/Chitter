@@ -14,7 +14,8 @@ module PeepHelpers
     @peep = Peep.create(params[:message])
   end
 
-  # def time_stamp(time)
-  #     time.strftime("%I:%M%p") 
-  # end
+  def time_stamp(time)
+    time.strftime("%I:%M%p") 
+  end
+
 end
