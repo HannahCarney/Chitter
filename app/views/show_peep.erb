@@ -1,9 +1,9 @@
 <h1><%= @peep.message %></h1>
 
 <p><a href="/peep">back to peep index</a></p>
-<p><a href="/peep/#{peep.id}/edit">edit this peep</a></p>
-<form action="/peep/#{@peep.id}" method="POST">
- <input type="hidden" name="_method" value="DELETE">
+<p><a href="/peep/<%= @peep.id %>/edit">edit this peep</a></p>
+<form action="/peep/<%= @peep.id %>" method="post">
+ <input type="hidden" name="_method" value="delete">
  <input type="submit" value="delete this song">
 </form>
 

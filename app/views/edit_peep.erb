@@ -1,0 +1,7 @@
+<h1> Edit Peep </h1>
+
+<form action="/peep/<%= @peep.id %>" method="post">
+  <input type="hidden" name ="_method" value="put">
+  Your Message: <textarea name="peep[message]"><%= @peep.message %></textarea>
+  <input type="submit" value="Save Peep">
+</form>

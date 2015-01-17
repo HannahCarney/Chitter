@@ -124,7 +124,19 @@ class Chitter < Sinatra::Base
     if peep.update(params[:peep])
       flash[:notice] = "Peep successfully updated"
     end
-    redirect to("/songs/#{peep.id}")
+    redirect to("/peep/#{peep.id}")
+  end
+
+  get '/peep/:id/edit' do
+    @peep = Peep.get(params[:id])
+    erb :edit_peep
+  end
+
+  post '/peep' do
+    if @peep = peep.create(params[:peep])
+      flash[:notice] = "Peep successfully added"
+      redirect to("/songs/#{@peep.id}")
+    end
   end
 
 
