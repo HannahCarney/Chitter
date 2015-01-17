@@ -12,6 +12,7 @@ class User
 
 
   attr_reader :password
+  attr_reader :username
  
   
   validates_uniqueness_of :email

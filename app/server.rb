@@ -23,7 +23,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    @user = User.get(params[:user_id])
+    @user = User.get(session[:user_id])
     @peeps = Peep.all
     erb :index
   end
@@ -56,7 +56,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/users' do
-    @user = User.new(:username => params[:username],
+    @user = User.create(:username => params[:username],
                      :email => params[:email],
                      :password => params[:password])
     if @user.save
@@ -105,14 +105,17 @@ class Chitter < Sinatra::Base
 
   post '/peep/new' do
       protected!
-      @peep = Peep.new(:message => params[:message])
+      @user = User.get(session[:user_id])
+      @peep = Peep.new(:message => params[:message],
+                       :username => @user.username,
+                       :peep_timestamp => Time.now)
     if @peep.message == ""
       flash[:notice] = "You didn't enter a peep"
       redirect ('/')
     else
       flash[:notice] = "You posted a new peep"
       @peep.save
-      redirect to("/peep")
+      redirect to("/")
     end
 
   end
@@ -140,7 +143,7 @@ class Chitter < Sinatra::Base
     @peep = Peep.get(params[:id])
     @peep.destroy
     flash[:notice] = "Peep deleted"
-    redirect ('/peep')
+    redirect ('/')
   end
 
   post '/peep' do
