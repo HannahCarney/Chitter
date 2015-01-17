@@ -44,6 +44,15 @@ feature "In order to use chitter as a maker I want to log in" do
 
 
   end
+
+  feature "In order to let people know what I am doing as a maker I want to post a message (peep) to chitter" do
+  
+  scenario "making a peep" do
+    visit '/'
+    expect(page).to have_content("Post a new peep!")
+  end
+
+  end
   # scenario "with a password that doesn't match" do
 
   # end

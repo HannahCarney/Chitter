@@ -10,11 +10,18 @@
     <h1><%= title %></h1>
     <nav>
       <ul>
-        <li><a href='/' title="Home">Home</a></li>
-        <li><a href='/about' title="About">About</a></li>
-        <li><a href='/contact' title="Contact">Contact</a></li>
+        <li><a href='/' title="Home" class=current?>Home</a></li>
+        <li><a href='/about' title="About" class=current?("/about")>About</a></li>
+        <li><a href='/contact' title="Contact" class=current?("/contact")>Contact</a></li>
       </ul>
+     </nav>
   </header>
+  <section>
+        <a href="/users/new">Sign up</a>
+        <a href="/sessions/new">Sign in</a>
+        <a href="/sessions/logout">Sign out</a>
+  </section>
+   
   <body>
  <% if flash[:errors] && !flash[:errors].empty? %>
    <div id="errors">

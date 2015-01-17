@@ -18,7 +18,6 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
-    puts "home"
     erb :index
   end
 
@@ -38,7 +37,7 @@ class Chitter < Sinatra::Base
       flash[:notice] = "Thank you for your message. We'll be in touch soon."
       redirect to ('')
     else 
-      flash[:notice] = "Not a real email address"
+      flash[:notice] = "Not a valid email address"
       erb :contact
     end
   end
@@ -91,6 +90,17 @@ class Chitter < Sinatra::Base
       redirect to ('/')
     end
   end
+
+  post '/peep/new' do
+      @peep = Peep.new(:message => params[:message])
+      flash[:notice] = "You posted a new peep"
+      erb :peep
+
+  end
+
+
+
+
 
   not_found do
     puts "not found"

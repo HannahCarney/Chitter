@@ -58,6 +58,11 @@ nav {
  font-weight: bold;
 }
 
+nav a.current {
+ background: lighten(#D2691E, 5%);
+}
+
+
 p {
  font: 13px/1.4 Helvetica Neue;
 }
