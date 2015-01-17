@@ -123,23 +123,23 @@ class Chitter < Sinatra::Base
 
    put '/peep/:id' do
     peep = Peep.get(params[:id])
-    if protected! && peep.update(params[:peep])
-      flash[:notice] = "Peep successfully updated"
-    end
+    peep.update(params[:peep])
+    flash[:notice] = "Peep successfully updated"
     redirect to("/peep/#{peep.id}")
   end
 
   get '/peep/:id/edit' do
+    protected!
     @peep = Peep.get(params[:id])
     erb :edit_peep
   end
 
   delete '/peep/:id' do
+    protected!
     @peep = Peep.get(params[:id])
-    if protected!
     @peep.destroy
+    flash[:notice] = "Peep deleted"
     redirect ('/peep')
-  end
   end
 
   post '/peep' do
