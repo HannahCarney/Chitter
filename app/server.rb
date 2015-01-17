@@ -102,7 +102,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/new' do
-      @peep = Peep.create(:message => params[:message])
+      @peep = Peep.new(:message => params[:message])
     if @peep.message == ""
       flash[:notice] = "You didn't enter a peep"
       redirect ('/')
