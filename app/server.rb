@@ -4,6 +4,7 @@ require 'pony'
 require 'data_mapper'
 
 require_relative 'helpers/currentuser'
+require_relative 'helpers/peeps'
 require_relative 'data_mapper_setup'
 
 DataMapper.auto_upgrade!
@@ -11,6 +12,7 @@ DataMapper.auto_upgrade!
 class Chitter < Sinatra::Base
 
   helpers CurrentUser
+  helpers PeepHelpers
 
   enable :sessions
   set :sessions_secret, 'super secret'
@@ -92,14 +94,17 @@ class Chitter < Sinatra::Base
   end
 
   post '/peep/new' do
+      find_peeps
       @peep = Peep.new(:message => params[:message])
+    if @peep.message == ""
+      flash[:notice] = "You didn't enter a peep"
+      redirect ('/')
+    else 
       flash[:notice] = "You posted a new peep"
       erb :peep
+    end
 
   end
-
-
-
 
 
   not_found do

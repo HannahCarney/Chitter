@@ -1,2 +1,11 @@
 <h1> Peep Page </h1>
 <%= @peep.message %>
+
+<h1>Post a new peep!</h1>
+<section id="new-peep">
+	 <form action="/peep/new" method="post">
+	 <label for "message"> Your message: <input name="message" type="text">
+	 <input type="submit" value="Submit">
+ </form>
+</section>
+
