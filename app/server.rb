@@ -39,6 +39,7 @@ class Chitter < Sinatra::Base
   end
 
   post '/contact' do
+    session[:user_id]
     if email_valid(params[:email])
       send_message
       flash[:notice] = "Thank you for your message. We'll be in touch soon."
@@ -134,12 +135,15 @@ class Chitter < Sinatra::Base
 
   get '/peep/:id/edit' do
     protected!
+    correct_user!
+    puts User.get(:id)
     @peep = Peep.get(params[:id])
     erb :edit_peep
   end
 
   delete '/peep/:id' do
     protected!
+    correct_user!
     @peep = Peep.get(params[:id])
     @peep.destroy
     flash[:notice] = "Peep deleted"
@@ -149,7 +153,7 @@ class Chitter < Sinatra::Base
   post '/peep' do
     if @peep = peep.create(params[:peep])
       flash[:notice] = "Peep successfully added"
-      redirect to("/songs/#{@peep.id}")
+      redirect to("/peep/#{@peep.id}")
     end
   end
 
