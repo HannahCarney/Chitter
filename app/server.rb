@@ -115,8 +115,16 @@ class Chitter < Sinatra::Base
   end
 
   get '/peep/:id' do
-    @peep = find_peep
+    @peep = Peep.get(params[:id])
     erb :show_peep
+  end
+
+   put '/peep/:id' do
+    peep = Peep.get(params[:id])
+    if peep.update(params[:peep])
+      flash[:notice] = "Peep successfully updated"
+    end
+    redirect to("/songs/#{peep.id}")
   end
 
 

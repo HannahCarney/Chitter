@@ -3,7 +3,7 @@
 	<% if @peeps.any? %>
 		   <% @peeps.each do |peep| %>
 		   <ul>
-			   <pre><li><%= peep.message %></li></pre>
+			   <a href="peep/<%= peep.id %>"><%= peep.message %>
 		   </ul>
 		   <% end %>
 	<% else %>
