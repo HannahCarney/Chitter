@@ -50,6 +50,9 @@ feature "In order to use chitter as a maker I want to log in" do
   scenario "making a peep" do
     visit '/'
     expect(page).to have_content("Post a new peep!")
+    fill_in "message", :with => "This is a peep!"
+    click_button "Submit"
+    expect(page).to have_content("This is a peep!")
   end
 
   end
