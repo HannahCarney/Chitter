@@ -10,7 +10,28 @@ DataMapper.auto_upgrade!
 
 class Chitter < Sinatra::Base
 
-  helpers CurrentUser
+  helpers do
+
+   def send_message
+    Pony.mail({
+     :from => params[:name] + "<" + params[:email] + ">",
+     :to => 'hannahcarneyart@gmail.com',
+     :subject => params[:name] + " has contacted you",
+     :body => params[:message],
+     :via => :smtp,
+     :via_options => {
+       :address              => 'smtp.gmail.com',
+       :port                 => '587',
+       :enable_starttls_auto => true,
+       :user_name            => 'hannahcarneyart@gmail.com',
+       :password             => '07089000',
+       :authentication       => :plain,
+       :domain => 'localhost.localdomain'
+      }
+     })
+  end
+end
+
 
   enable :sessions
   set :sessions_secret, 'super secret'
@@ -30,6 +51,12 @@ class Chitter < Sinatra::Base
   get '/contact' do
     @title = "Contact Chitter"
     erb :contact
+  end
+
+  post '/contact' do
+    send_message
+    flash[:notice] = "Thank you for your message. We'll be in touch soon."
+    redirect to ('/')
   end
 
   get '/users/new' do

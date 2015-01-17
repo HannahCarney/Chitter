@@ -1,7 +1,25 @@
+require 'pony'
+require_relative '../secret_files'
+
 module CurrentUser
-
-  def current_user
-    @current_user ||= User.get(session[:user_id]) if session[:user_id]
-  end
-
+ 
+  def send_message
+    Pony.mail({
+     :from => params[:name] + "<" + params[:email] + ">",
+     :to => $email,
+     :subject => params[:name] + " has contacted you",
+     :body => params[:message],
+     :via => :smtp,
+     :via_options => {
+       :address              => 'smtp.gmail.com',
+       :port                 => '587',
+       :enable_starttls_auto => true,
+       :user_name            => $email,
+       :password             => $password,
+       :authentication       => :plain,
+       :domain => 'localhost.localdomain'
+      }
+     })
+  end 
 end
+
