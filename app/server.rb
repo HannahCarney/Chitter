@@ -132,6 +132,12 @@ class Chitter < Sinatra::Base
     erb :edit_peep
   end
 
+  delete '/peep/:id' do
+    @peep = Peep.get(params[:id])
+    @peep.destroy
+    redirect ('/peep')
+  end
+
   post '/peep' do
     if @peep = peep.create(params[:peep])
       flash[:notice] = "Peep successfully added"
