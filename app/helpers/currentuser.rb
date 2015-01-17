@@ -37,9 +37,8 @@ module CurrentUser
     end
   end
 
-  def time_stamp
-      time = Time.now
-      time.strftime("Posted on %m/%d/%Y")
+  def time_stamp(time)
+      time.strftime("%I:%M%p") 
   end
 
 

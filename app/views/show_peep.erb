@@ -2,7 +2,7 @@
 
 <p><%= @peep.message %></p>
 
-<p><a href="/peep">back to peep index</a></p>
+<p><a href="/">back to peep index</a></p>
 <p><a href="/peep/<%= @peep.id %>/edit">edit this peep</a></p>
 <form action="/peep/<%= @peep.id %>" method="post">
  <input type="hidden" name="_method" value="delete">

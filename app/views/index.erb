@@ -16,7 +16,7 @@
 	<% if @peeps.any? %>
 		   <% @peeps.each do |peep| %>
 		       
-			   <ul><a href="peep/<%= peep.id %>"><%= peep.username %> wrote at <%= peep.peep_timestamp %>: <%= peep.message %></a></ul>
+			   <pre><ul><a href="peep/<%= peep.id %>"><%= peep.username %> <%= peep.peep_timestamp %>: <%= peep.message %></a></ul></pre>
 		
 		   <% end %>
 	<% else %>
