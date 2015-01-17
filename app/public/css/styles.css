@@ -41,6 +41,16 @@ a {
 		background: darken(black, 20%);
     }
   }
+
+
+div  {
+  width: 600px;
+  padding: 5px;
+  font-weight: bold;
+  margin: 20px;
+  background: lighten(#D2691E, 60%);
+  color: #D2691E;
+  border: 1px solid red;
 }
 
 nav {
@@ -51,3 +61,4 @@ nav {
 p {
  font: 13px/1.4 Helvetica Neue;
 }
+
