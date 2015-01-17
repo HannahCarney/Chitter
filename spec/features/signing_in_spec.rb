@@ -35,33 +35,39 @@ feature "In order to use chitter as a maker I want to log in" do
                   :password => 'test')
     end
 
-  scenario "being able to log out" do
-    visit '/'
-    sign_in('alice', 'test')
-    sign_out
-    expect(page).to have_content("You are now logged out")
-  end
+    scenario "being able to log out" do
+      visit '/'
+      sign_in('alice', 'test')
+      sign_out
+      expect(page).to have_content("You are now logged out")
+    end
 
 
   end
 
   feature "In order to let people know what I am doing as a maker I want to post a message (peep) to chitter" do
   
-  scenario "making a peep" do
-    visit '/'
-    expect(page).to have_content("Post a new peep!")
-    fill_in "message", :with => "This is a peep!"
-    click_button "Submit"
-    expect(page).to have_content("This is a peep!")
-  end
+    scenario "making a peep" do
+      visit '/'
+      expect(page).to have_content("Post a new peep!")
+      fill_in "message", :with => "This is a peep!"
+      click_button "Submit"
+      expect(page).to have_content("This is a peep!")
+    end
 
   end
-  # scenario "with a password that doesn't match" do
 
-  # end
+  feature "In order to see what people have to say as a maker I want to see all peeps in chronological order" do
 
-  # scenario "with an email that is already registered" do
-  # end
-  
-  
+    before(:each) do
+      Peep.create(:message => "First Peep")
+      Peep.create(:message => "Second Peep")
+    end
+
+    scenario "See all peeps" do
+      visit ('/peep')
+      expect(page).to have_content("First Peep")
+      expect(page).to have_content("Second Peep")
+    end 
+  end
 end

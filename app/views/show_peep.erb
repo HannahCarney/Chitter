@@ -1,4 +1,6 @@
-<h1><%= @peep.message %></h1>
+<h1>Here is your peep:</h1>
+
+<p><%= @peep.peep_timestamp %>: <%= @peep.message %></p>
 
 <p><a href="/peep">back to peep index</a></p>
 <p><a href="/peep/<%= @peep.id %>/edit">edit this peep</a></p>

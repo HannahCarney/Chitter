@@ -26,5 +26,17 @@ module CurrentUser
     return email.match(/[a-zA-Z0-9._%]@(?:[a-zA-Z0-9]\.)[a-zA-Z]{2,4}/)
   end
 
+  def authorized?
+    session[:user_id]
+  end
+
+  def protected!
+    unless authorized?
+      flash[:notice] = "You need to be logged in to post a peep"
+      redirect ('/')
+    end
+  end
+
+
 end
 
