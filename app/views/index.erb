@@ -1,3 +1,5 @@
+<!-- should eventually have profile information here -->
+
 <h1>Post a new peep!</h1>
 <section id="new-peep">
  <form action="/peep/new" method="post">
@@ -7,3 +9,16 @@
 
  </form>
 </section>
+
+<h1> Peep Page </h1>
+<div>
+	<% if @peeps.any? %>
+		   <% @peeps.each do |peep| %>
+		   <ul>
+			   <a href="peep/<%= peep.id %>"><%= peep.message %>
+		   </ul>
+		   <% end %>
+	<% else %>
+		  <p> No peeps have been created yet </p>
+	<% end %>
+</div> 

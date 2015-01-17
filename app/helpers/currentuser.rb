@@ -32,7 +32,7 @@ module CurrentUser
 
   def protected!
     unless authorized?
-      flash[:notice] = "You need to be logged in to post a peep"
+      flash[:notice] = "You need to be logged in to do that"
       redirect ('/')
     end
   end

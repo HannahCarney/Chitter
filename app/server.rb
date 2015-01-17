@@ -23,6 +23,7 @@ class Chitter < Sinatra::Base
   use Rack::MethodOverride
 
   get '/' do
+    @peeps = Peep.all
     erb :index
   end
 
@@ -122,7 +123,7 @@ class Chitter < Sinatra::Base
 
    put '/peep/:id' do
     peep = Peep.get(params[:id])
-    if peep.update(params[:peep])
+    if protected! && peep.update(params[:peep])
       flash[:notice] = "Peep successfully updated"
     end
     redirect to("/peep/#{peep.id}")
@@ -135,8 +136,10 @@ class Chitter < Sinatra::Base
 
   delete '/peep/:id' do
     @peep = Peep.get(params[:id])
+    if protected!
     @peep.destroy
     redirect ('/peep')
+  end
   end
 
   post '/peep' do
