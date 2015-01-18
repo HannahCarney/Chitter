@@ -44,9 +44,9 @@ a {
   }
 
 header nav ul li a:link {
-    color: #D2691E }
+    color: purple }
 header nav ul li a:visited {
-    color: blue }
+    color: purple }
 
 div  {
   width: 600px;
