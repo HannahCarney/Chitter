@@ -1,7 +1,8 @@
-env = ENV['RACK_ENV'] || 'development'
+env = ENV["RACK_ENV"] || "development"
 
-DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "postgres://localhost/chitter_#{env}")
 
+require './lib/link'
 require './lib/user'
 require './lib/peep'
 

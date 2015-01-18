@@ -1,5 +1,4 @@
 require 'pony'
-require_relative '../secret_files'
 
 module CurrentUser
  
