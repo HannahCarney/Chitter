@@ -16,3 +16,4 @@ source "https://rubygems.org"
   gem 'sass'
   gem 'pony'
   gem 'pg'
+  gem 'sass'

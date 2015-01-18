@@ -4,6 +4,7 @@ require 'pony'
 require 'data_mapper'
 require 'dm-core'
 require 'dm-migrations'
+require 'sass'
 
 
 require_relative 'helpers/currentuser'
@@ -42,10 +43,11 @@ class Chitter < Sinatra::Base
     session[:user_id]
     if send_message
       flash[:notice] = "Thank you for your message. We'll be in touch soon."
-      redirect to ('')
+      redirect to ('/')
     else 
       flash[:notice] = "Sorry, something went wrong"
       erb :contact
+      redirect to ('/')
     end
   end
 

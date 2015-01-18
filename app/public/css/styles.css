@@ -11,6 +11,10 @@ header h1 {
 	padding-left: 80px;
 }
 
+header {
+#signup color: #800;
+}  
+
 p {
 	font: 13px/1.4  Helvetica Neue;
 }
@@ -37,11 +41,12 @@ a {
 	text-decoration: none;
 	display: block;
 	padding: 8px;
-	&:hover {
-		background: darken(black, 20%);
-    }
   }
 
+header nav ul li a:link {
+    color: #D2691E }
+header nav ul li a:visited {
+    color: blue }
 
 div  {
   width: 600px;
@@ -58,8 +63,26 @@ nav {
  font-weight: bold;
 }
 
-nav a.current {
- background: lighten(#D2691E, 5%);
+header nav ul li a.current {
+ background: (#D2691E, 10%);
+}
+
+header nav ul li a .hoverme {
+    position: relative;
+}
+header nav ul li a.hoverme:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: -1;
+}
+
+nav.hoverme:hover:after {
+    background-color: #ddd;
 }
 
 
