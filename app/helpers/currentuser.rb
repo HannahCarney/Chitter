@@ -6,7 +6,7 @@ module CurrentUser
   def send_message
     Pony.mail({
      :from => params[:name] + "<" + params[:email] + ">",
-     :to => $email,
+     :to => ENV[KEY1],
      :subject => params[:name] + " has contacted you",
      :body => params[:message],
      :via => :smtp,
@@ -14,8 +14,8 @@ module CurrentUser
        :address              => 'smtp.gmail.com',
        :port                 => '587',
        :enable_starttls_auto => true,
-       :user_name            => $email,
-       :password             => $password,
+       :user_name            => ENV[KEY1],
+       :password             => ENV[KEY2],
        :authentication       => :plain,
        :domain => 'localhost.localdomain'
       }
