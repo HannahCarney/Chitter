@@ -14,7 +14,7 @@
 <h1> Peep Page </h1>
 <div>
 	<% if @peeps.any? %>
-		   <% @peeps.each do |peep| %>
+		   <% @peeps.reverse.each do |peep| %>
 		       
 			   <pre><ul><a href="peep/<%= peep.id %>"><%= peep.username %> posted on <%= peep.peep_timestamp.strftime("%D at %I:%M%p") %>: <%= peep.message %></a></ul></pre>
 		
