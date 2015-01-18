@@ -40,12 +40,11 @@ class Chitter < Sinatra::Base
 
   post '/contact' do
     session[:user_id]
-    if email_valid(params[:email])
-      send_message
+    if send_message
       flash[:notice] = "Thank you for your message. We'll be in touch soon."
       redirect to ('')
     else 
-      flash[:notice] = "Not a valid email address"
+      flash[:notice] = "Sorry, something went wrong"
       erb :contact
     end
   end
