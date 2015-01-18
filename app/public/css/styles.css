@@ -41,6 +41,7 @@ a {
 	text-decoration: none;
 	display: block;
 	padding: 8px;
+  color: purple;
   }
 
 header nav ul li a:link {
