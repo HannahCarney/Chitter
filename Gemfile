@@ -1,8 +1,6 @@
 source "https://rubygems.org"
 
-gem 'sinatra'
-
-group :development, :test do
+  gem 'sinatra'
   gem 'capybara'
   gem 'cucumber'
   gem 'cucumber-sinatra'
@@ -17,4 +15,3 @@ group :development, :test do
   gem 'rack-flash3'
   gem 'sass'
   gem 'pony'
-end
