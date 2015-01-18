@@ -15,3 +15,4 @@ source "https://rubygems.org"
   gem 'rack-flash3'
   gem 'sass'
   gem 'pony'
+  gem 'pg'
