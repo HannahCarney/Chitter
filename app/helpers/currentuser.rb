@@ -7,7 +7,7 @@ module CurrentUser
      :from => params[:name] + "<" + params[:email] + ">",
      :to => ENV['KEY1'],
      :subject => params[:name] + " has contacted you",
-     :body => params[:message],
+     :body => params[:message] + params[:reasons] + "<" + params[:email], 
      :via => :smtp,
      :via_options => {
        :address              => 'smtp.gmail.com',
