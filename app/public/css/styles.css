@@ -1,6 +1,9 @@
 h1 {
   color: #903;
   font: 32px/1  Helvetica Neue;
+  font-size: 30px;
+  line-height: 20px;
+  padding-left: 20px;
 }
 
 header h1 {
@@ -15,8 +18,15 @@ header {
 #signup color: #800;
 }  
 
+form {
+   line-height: 20px;
+   padding-left: 20px;
+
+  }
+
 p {
 	font: 13px/1.4  Helvetica Neue;
+  padding-left: 20px;
 }
 
 body {
