@@ -1,3 +1,5 @@
+
+
 require 'sinatra/base'
 require 'rack-flash'
 require 'pony'
@@ -45,9 +47,9 @@ class Chitter < Sinatra::Base
       flash[:notice] = "Thank you for your message. We'll be in touch soon."
       redirect to ('/')
     else 
-      flash[:notice] = "Sorry, something went wrong"
+      flash[:notice] = "Sorry, something was wrong with your form"
       erb :contact
-      redirect to ('/')
+      redirect to ('/contact')
     end
   end
 

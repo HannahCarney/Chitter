@@ -44,10 +44,17 @@ a {
   color: purple;
   }
 
+a:hover {
+
+  color:#FFCC66;
+}
+
 header nav ul li a:link {
-    color: purple }
+    color: purple;
+     }
 header nav ul li a:visited {
-    color: purple }
+    color: purple;
+     }
 
 div  {
   width: 600px;
@@ -57,19 +64,22 @@ div  {
   background: lighten(#D2691E, 60%);
   color: #D2691E;
   border: 1px solid red;
+
 }
+
 
 nav {
  <% include tabs %> (background: #D2691E, color: white);
  font-weight: bold;
 }
 
-header nav ul li a.current {
- background: (#D2691E, 10%);
+header nav.current {
+ background: #FFCC66;
 }
 
-header nav ul li a .hoverme {
+header nav ul li a:hover {
     position: relative;
+    color: #FFCC66;
 }
 header nav ul li a.hoverme:after {
     content: "";
@@ -78,7 +88,7 @@ header nav ul li a.hoverme:after {
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: #fff;
+    background-color: #FFCC66;
     z-index: -1;
 }
 
@@ -90,6 +100,15 @@ nav.hoverme:hover:after {
 p {
  font: 13px/1.4 Helvetica Neue;
 }
+
+#submit {
+ 
+ background: transparent url(/images/orange-submit-button.png) 0 0 no-repeat; 
+}
+
+.flash {
+ display:inline
+  }
 
 
 label { display: block; }

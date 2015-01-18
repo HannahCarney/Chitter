@@ -1,9 +1,9 @@
 <h1>Here is your peep:</h1>
+<div class="panel panel-danger"><%= @peep.message %></div>
 
-<p><%= @peep.message %></p>
 
-<p><a href="/">back to peep index</a></p>
-<p><a href="/peep/<%= @peep.id %>/edit">edit this peep</a></p>
+<h3><a href="/">back to peep index</a></h3>
+<h3><a href="/peep/<%= @peep.id %>/edit">edit this peep</a></h3>
 <form action="/peep/<%= @peep.id %>" method="post">
  <input type="hidden" name="_method" value="delete">
  <input type="submit" value="delete this peep">
