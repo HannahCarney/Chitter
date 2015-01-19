@@ -7,6 +7,7 @@ require 'data_mapper'
 require 'dm-core'
 require 'dm-migrations'
 require 'sass'
+require 'timecop'
 
 
 require_relative 'helpers/currentuser'
