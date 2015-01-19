@@ -6,6 +6,7 @@ include SessionHelpers
 
 feature "In order to use chitter as a maker I want to sign up to the service" do
   
+
   scenario "being able to sign up" do
     visit '/'
     expect{ sign_up }.to change(User, :count).by(1)
@@ -19,7 +20,8 @@ feature "In order to use chitter as a maker I want to log in" do
    before(:each) do
     User.create(:username => "alice",
                 :email => "alice@test.com",
-                :password => 'test')
+                :password => 'test',
+                :password_confirmation => 'test')
   end
     
   scenario "being able to sign in" do
@@ -34,7 +36,8 @@ end
      before(:each) do
       User.create(:username => "alice",
                   :email => "alice@test.com",
-                  :password => 'test')
+                  :password => 'test',
+                  :password_confirmation => 'test')
     end
 
     scenario "being able to log out" do
@@ -52,7 +55,8 @@ end
     before(:each) do
       User.create(:username => "alice",
                   :email => "alice@test.com",
-                  :password => 'test')
+                  :password => 'test',
+                  :password_confirmation => 'test')
     end
 
     scenario "making a peep" do
@@ -71,7 +75,8 @@ end
      before(:each) do
       User.create(:username => "alice",
                   :email => "alice@test.com",
-                  :password => 'test')
+                  :password => 'test',
+                  :password_confirmation => 'test')
 
      end
 
