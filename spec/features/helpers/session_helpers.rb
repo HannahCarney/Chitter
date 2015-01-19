@@ -20,8 +20,14 @@ module SessionHelpers
   end
 
   def sign_out
-    visit '/'
-    click_link "Sign out"
+    visit '/sessions/logout'
+  end
+
+  def create_peep(message)
+    visit ('/')
+    sign_in('alice', 'test')
+    fill_in "message", :with => message
+    click_button "Submit"
   end
 
 end

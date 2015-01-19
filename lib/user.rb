@@ -12,6 +12,7 @@ class User
 
 
   attr_reader :password
+  attr_accessor :password_confirmation
   attr_reader :username
  
   

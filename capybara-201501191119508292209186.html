@@ -1,15 +1,14 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 
 <!DOCTYPE html>
-<% title="Chitter" %>
 <html lang="en">
 <head>
-  <title><%= @title || "Chitter" %></title>
+  <title>Chitter</title>
   <meta charseet="utf-5">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
   <header>
-    <h1><%= title %></h1>
+    <h1>Chitter</h1>
     <nav class="hoverme">
       <ul>
         <li><a href='/' title="Home" class=current?>Home</a></li>
@@ -22,19 +21,36 @@
      </nav>
     </header>
   <body>
- <% if flash[:errors] && !flash[:errors].empty? %>
-   <div id="errors">
-      <% flash[:errors].each do |error| %>
-         <%= error %>
-    </div>
-      <% end %>
-    </ul>
-  <% end %>
-  <% if flash[:notice] %>
-    <div id="notice">
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
-   <%= yield %>
+ 
+  
+   <!-- should eventually have profile information here -->
+
+
+<h1>Post a new peep!</h1>
+<section id="new-peep">
+ <form action="/peep/new" method="post">
+  
+   <label for "message"> Your peep: </label><input name="message" type="text">
+   <p></p>
+   <input type="submit" value="Submit">
+
+ </form>
+</section>
+
+<h1> Peep Page </h1>
+<div>
+	
+		   
+		       
+			   <pre><ul><a href="peep/3">alice posted on 01/19/15 at 11:19AM: Last Peep</a></ul></pre>
+		
+		   
+		       
+			   <pre><ul><a href="peep/2">alice posted on 01/19/15 at 12:19PM: recent</a></ul></pre>
+		
+		   
+	
+</div> 
+
 </body>
 </html>

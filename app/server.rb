@@ -27,7 +27,7 @@ class Chitter < Sinatra::Base
 
   get '/' do
     @user = User.get(session[:user_id])
-    @peeps = Peep.all
+    @peeps = Peep.all.sort{|a,b| a.peep_timestamp <=> b.peep_timestamp }
     erb :index
   end
 
@@ -139,7 +139,6 @@ class Chitter < Sinatra::Base
   get '/peep/:id/edit' do
     protected!
     correct_user!
-    puts User.get(:id)
     @peep = Peep.get(params[:id])
     erb :edit_peep
   end

@@ -7,7 +7,7 @@ module CurrentUser
      :from => params[:name] + "<" + params[:email] + ">",
      :to => ENV['KEY1'],
      :subject => params[:name] + " has contacted you",
-     :body => params[:reasons] + ": " + params[:message] + "<" + params[:email] + ">", 
+     :body => params[:reasons] + ": " + params[:message] + " <" + params[:email] + ">", 
      :via => :smtp,
      :via_options => {
        :address              => 'smtp.gmail.com',
@@ -22,7 +22,7 @@ module CurrentUser
   end 
 
   def email_valid(email)
-    return email.match(/[a-zA-Z0-9._%]@(?:[a-zA-Z0-9]\.)[a-zA-Z]{2,4}/)
+    return email.match(/[a-zA-Z0-9._-%]@(?:[a-zA-Z0-9-_]\.)[a-zA-Z\.]{2,4}/)
   end
 
   def authorized?
