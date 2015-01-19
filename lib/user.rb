@@ -11,13 +11,13 @@ class User
   property :password_digest, Text
 
 
-  attr_reader :password
+  attr_reader :password, :username
   attr_accessor :password_confirmation
-  attr_reader :username
  
   
   validates_uniqueness_of :email
   validates_uniqueness_of :username
+  validates_confirmation_of :password
  
 
     def password=(password)

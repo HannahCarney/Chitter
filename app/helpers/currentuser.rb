@@ -21,9 +21,9 @@ module CurrentUser
      })
   end 
 
-  def email_valid(email)
-    return email.match(/[a-zA-Z0-9._-%]@(?:[a-zA-Z0-9-_]\.)[a-zA-Z\.]{2,4}/)
-  end
+  # def email_valid(email)
+  #   return email.match(/[a-zA-Z0-9._-%]@(?:[a-zA-Z0-9-_]\.)[a-zA-Z\.]{2,4}/)
+  # end
 
   def authorized?
     session[:user_id]
