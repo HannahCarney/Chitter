@@ -10,12 +10,12 @@ Heroku (live)
 
 Objectives of exercise
 -----
-- Learning Front End Development
-* Html and CSS
-- Using Ruby and Sinatra to deploy a social network site
-* Use postgres to create databases
-* Add databases to Heroku
-* Test-Driven Development
+* Learning Front End Development
+ * Html and CSS
+* Using Ruby and Sinatra to deploy a social network site
+ * Use postgres to create databases
+ * Add databases to Heroku
+ * Test-Driven Development
 
 Technologies used
 ----------
